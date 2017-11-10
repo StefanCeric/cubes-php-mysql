@@ -11,7 +11,7 @@ function productsFetchAll() {
                 . "`products`.*, `categories`.`title` AS category_title, "
                 . "`brands`.`title` AS brand_title "
                 . "FROM `products` "
-                . "LEFT JOIN `categories` ON `products`.`category_id` = `categories`.id "
+                . "LEFT JOIN `categories` ON `products`.`category_id` = `categories`.`id` "
                 . "LEFT JOIN `brands` ON `products`.`brand_id` = `brands`.`id`";
 	
 	
@@ -24,9 +24,14 @@ function productsFetchAll() {
  */
 function productsFetchOneById($id) {
 	
-	$query = "SELECT `products`.* "
-			. "FROM `products` "
-			. "WHERE `id` = '" . dbEscape($id) . "'";
+        $query = "SELECT "
+                . "`products`.*, `categories`.`title` AS category_title, "
+                . "`brands`.`title` AS brand_title "
+                . "FROM `products` "
+                . "LEFT JOIN `categories` ON `products`.`category_id` = `categories`.`id` "
+                . "LEFT JOIN `brands` ON `products`.`brand_id` = `brands`.`id` "
+                . "WHERE `products`.`id` = '" . dbEscape($id) . "' ";
+    
 	
 	return dbFetchOne($query);
 }
