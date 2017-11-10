@@ -6,8 +6,13 @@ require_once __DIR__ . '/m_database.php';
  * 
  * @return array Aarray of associative arrays that represent rows
  */
-function groupsFetchAll() {
-	$query = "SELECT `groups`.* FROM `groups`";
+function productsFetchAll() {
+	$query = "SELECT "
+                . "`products`.*, `categories`.`title` AS category_title, "
+                . "`brands`.`title` AS brand_title "
+                . "FROM `products` "
+                . "LEFT JOIN `categories` ON `products`.`category_id` = `categories`.id "
+                . "LEFT JOIN `brands` ON `products`.`brand_id` = `brands`.`id`";
 	
 	
 	return dbFetchAll($query);
@@ -17,10 +22,10 @@ function groupsFetchAll() {
  * @param scalar $id
  * @return array Associative array that represent one row
  */
-function groupsFetchOneById($id) {
+function productsFetchOneById($id) {
 	
-	$query = "SELECT `groups`.* "
-			. "FROM `groups` "
+	$query = "SELECT `products`.* "
+			. "FROM `products` "
 			. "WHERE `id` = '" . dbEscape($id) . "'";
 	
 	return dbFetchOne($query);
@@ -30,9 +35,9 @@ function groupsFetchOneById($id) {
  * @param int $id
  * @return int Affected rows
  */
-function groupsDeleteOneById($id) {
+function productsDeleteOneById($id) {
 	
-	$query = "DELETE FROM `groups` "
+	$query = "DELETE FROM `products` "
 			. "WHERE `id` = '" . dbEscape($id) . "'";
 	
 	return dbQuery($query);
@@ -42,7 +47,7 @@ function groupsDeleteOneById($id) {
  * @param array $data Row to insert, associative array
  * @return type
  */
-function groupsInsertOne(array $data) {
+function productsInsertOne(array $data) {
 	
 	$columnsPart = "(`" . implode('`, `', array_keys($data)) . "`)";
 	
@@ -54,7 +59,7 @@ function groupsInsertOne(array $data) {
 	
 	$valuesPart = "(" . implode(', ', $values) . ")";
 	
-	$query = "INSERT INTO `groups` " . $columnsPart . " VALUES " . $valuesPart;
+	$query = "INSERT INTO `products` " . $columnsPart . " VALUES " . $valuesPart;
 
 	
 	dbQuery($query);
@@ -62,7 +67,7 @@ function groupsInsertOne(array $data) {
 	return dbLastInsertId();
 }
 
-function groupsUpdateOneById($id, $data) {
+function productsUpdateOneById($id, $data) {
 	
 	$setParts = array();
 	
@@ -72,7 +77,7 @@ function groupsUpdateOneById($id, $data) {
 	
 	$setPart = implode(',', $setParts);
 	
-	$query = "UPDATE `groups` SET " . $setPart . " WHERE `id` = '" . dbEscape($id) . "'";
+	$query = "UPDATE `products` SET " . $setPart . " WHERE `id` = '" . dbEscape($id) . "'";
 
 	return dbQuery($query);
 }
@@ -80,34 +85,10 @@ function groupsUpdateOneById($id, $data) {
 /**
  * @return int Count of all rows in table
  */
-function groupsGetCount() {
+function productsGetCount() {
 	$link = dbGetLink();
 	
-	$query = "SELECT COUNT(`id`) FROM `groups`";
+	$query = "SELECT COUNT(`id`) FROM `products`";
 	
 	return dbFetchColumn($query);
-}
-
-
-
-function groupsGetList() {
-    
-    $query = "SELECT `groups`.* FROM `groups` ORDER BY groups.`title`";
-    
-    $groups = dbFetchAll($query);
-    
-    $groupList = [];
-    
-    foreach ($groups as $group) {
-        
-//        $key = $group['id'];
-//        $value = $group['title'];
-//        
-//        $groupList[$key] = $value;
-        
-          $groupList[$group['id']] = $group['title'];
-        
-    }
-    
-    return $groupList;
 }
