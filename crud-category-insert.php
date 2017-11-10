@@ -4,7 +4,6 @@ session_start();
 require_once __DIR__ . '/models/m_categories.php';
 require_once __DIR__ . '/models/m_groups.php';
 
-
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
 $formData = array(
 	'title' => '',
@@ -33,8 +32,6 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 
 
 $groups = groupsFetchAll();
-
-
 
 
 require_once __DIR__ . '/views/layout/header.php';

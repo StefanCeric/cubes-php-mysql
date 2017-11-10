@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="header">
 					<h2 class="page-title">
-						<span>CRUD - Groups</span>
+						<span>CRUD - Tags</span>
 					</h2>
 				</div>
 			</div>
@@ -15,14 +15,14 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - Insert new group
+							CRUD Tag - Edit tag #<?php echo htmlspecialchars($tag['id']);?>
 						</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
 						<form action="" method="post" class="form-horizontal">
-							<input type="hidden" name="task" value="insert">
+							<input type="hidden" name="task" value="save">
 							
 							<fieldset>
 								<legend></legend>
@@ -46,8 +46,8 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
-									<button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i> Insert</button>
+                                                                    <a href="/crud-tag-list.php" class="btn btn-default">Cancel</a>
+									<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
 								</div>
 							</fieldset>
 						</form>

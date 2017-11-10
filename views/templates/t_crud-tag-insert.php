@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="header">
 					<h2 class="page-title">
-						<span>CRUD - Groups</span>
+						<span>CRUD - Tags</span>
 					</h2>
 				</div>
 			</div>
@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - Insert new group
+							CRUD Tag - Insert new tag
 						</h2>
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-tag-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i> Insert</button>
 								</div>
 							</fieldset>
