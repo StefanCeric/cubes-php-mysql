@@ -8,7 +8,7 @@ if (!isUserLoggedIn()) {
     die();
 }
 
-require_once __DIR__ . '/models/m_groups.php';
+require_once __DIR__ . '/models/m_sections.php';
 
 if (empty($_GET['id'])) {
     die('Prosledi ID!');
@@ -16,24 +16,24 @@ if (empty($_GET['id'])) {
 
 $id = (int) $_GET['id'];
 
-$group = groupsFetchOneById($id);
+$section = sectionsFetchOneById($id);
 
-if (empty($group)) {
-    die('Trazena grupa ne postoji!');
+if (empty($section)) {
+    die('Trazena sekcija ne postoji!');
 }
 
 if (isset($_POST["task"]) && $_POST["task"] == "delete") {
     
-      groupsDeleteOneById($id);
+      sectionsDeleteOneById($id);
            
       
-           header ('Location: /crud-group-list.php');
+           header ('Location: /crud-section-list.php');
            die();
     
 }
 
 
 require_once __DIR__ .  '/views/layout/header.php';
-require_once __DIR__ .  '/views/templates/t_crud-group-delete.php';
+require_once __DIR__ .  '/views/templates/t_crud-section-delete.php';
 require_once __DIR__ .  '/views/layout/footer.php';
 

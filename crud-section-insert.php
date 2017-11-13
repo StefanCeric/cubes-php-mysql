@@ -8,7 +8,7 @@ if (!isUserLoggedIn()) {
     die();
 }
 
-require_once __DIR__ . '/models/m_groups.php';
+require_once __DIR__ . '/models/m_sections.php';
 
 
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
@@ -44,9 +44,9 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
            
-        $newGroupId = groupsInsertOne($formData);
+        $newSectionId = sectionsInsertOne($formData);
             
-           header ('Location: /crud-group-list.php');
+           header ('Location: /crud-section-list.php');
            die();
            
         }
@@ -54,7 +54,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 }
 
 require_once __DIR__ .  '/views/layout/header.php';
-require_once __DIR__ .  '/views/templates/t_crud-group-insert.php';
+require_once __DIR__ .  '/views/templates/t_crud-section-insert.php';
 require_once __DIR__ .  '/views/layout/footer.php';
 
 

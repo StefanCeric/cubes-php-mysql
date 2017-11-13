@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="header">
 					<h2 class="page-title">
-						<span>CRUD - Groups</span>
+						<span>CRUD - Sections</span>
 					</h2>
 				</div>
 			</div>
@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2>
-							CRUD Group - Edit group #<?php echo htmlspecialchars($group['id']);?>
+							CRUD Section - Edit section #<?php echo htmlspecialchars($section['id']);?>
 						</h2>
 					</div>
 				</div>
@@ -46,7 +46,7 @@
 							<fieldset>
 								<legend></legend>
 								<div class="form-group text-right">
-                                                                    <a href="/crud-group-list.php" class="btn btn-default">Cancel</a>
+                                                                    <a href="/crud-section-list.php" class="btn btn-default">Cancel</a>
 									<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
 								</div>
 							</fieldset>

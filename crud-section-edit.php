@@ -8,7 +8,7 @@ if (!isUserLoggedIn()) {
     die();
 }
 
-require_once __DIR__ . '/models/m_groups.php';
+require_once __DIR__ . '/models/m_sections.php';
 
 
 
@@ -19,16 +19,16 @@ if (empty($_GET['id'])) {
 $id = (int) $_GET['id'];
 
 
-$group = groupsFetchOneById($id);
+$section = sectionsFetchOneById($id);
 
-if (empty($group)) {
-    die('Trazena grupa ne postoji!');
+if (empty($section)) {
+    die('Trazena sekcija ne postoji!');
 }
 
 
 //ovde se prihvataju vrednosti polja, popisati sve kljuceve i pocetne vrednosti
 $formData = array(
-	'title' => $group['title'],
+	'title' => $section['title'],
 );
 
 //ovde se smestaju greske koje imaju polja u formi
@@ -59,10 +59,10 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	if (empty($formErrors)) {
 		//Uradi akciju koju je korisnik trazio
            
-        groupsUpdateOneById($group['id'], $formData);
+        sectionsUpdateOneById($section['id'], $formData);
             
             
-           header ('Location: /crud-group-list.php');
+           header ('Location: /crud-section-list.php');
            die();
            
         }
@@ -71,7 +71,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 
 
 require_once __DIR__ .  '/views/layout/header.php';
-require_once __DIR__ .  '/views/templates/t_crud-group-edit.php';
+require_once __DIR__ .  '/views/templates/t_crud-section-edit.php';
 require_once __DIR__ .  '/views/layout/footer.php';
 
 
