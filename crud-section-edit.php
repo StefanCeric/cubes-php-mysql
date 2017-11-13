@@ -40,7 +40,7 @@ $formErrors = array();
 if (isset($_POST["task"]) && $_POST["task"] == "save") {
 	
 	/*********** filtriranje i validacija polja ****************/
-    if (isset($_POST["title"]) && $_POST["title"] !== '') {
+        if (isset($_POST["title"]) && $_POST["title"] !== '') {
 		//Dodavanje parametara medju podatke u formi
 		$formData["title"] = $_POST["title"];
 		
@@ -60,8 +60,7 @@ if (isset($_POST["task"]) && $_POST["task"] == "save") {
 		//Uradi akciju koju je korisnik trazio
            
         sectionsUpdateOneById($section['id'], $formData);
-            
-            
+              
            header ('Location: /crud-section-list.php');
            die();
            

@@ -21,7 +21,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-                                            <form action="" method="post" class="form-horizontal">
+                                            <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                                                     
                                                     <input type="hidden" name="task" value="save">
                                                     
@@ -30,10 +30,11 @@
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label">Section</label>  
+                                                                        
 									<div class="col-md-5">
                                                                             <select name="section_id" class="form-control">
-											<option value="">--- Select Section ---</option>
-                                                                                        <?php foreach ($sectionList as $sectionId => $sectionTitle) { ?>
+										<option value="">--- Select Section ---</option>
+                                                                                    <?php foreach ($sectionList as $sectionId => $sectionTitle) { ?>
                                                                                         <option 
                                                                                             value="<?php echo htmlspecialchars($sectionId); ?>"
                                                                                             
@@ -41,34 +42,37 @@
                                                                                             selected="selected"
                                                                                             <?php } ?>
                                                                                             
-                                                                                                ><?php echo htmlspecialchars($sectionTitle); ?></option>
-                                                                                        <?php } ?>
-										</select>
+                                                                                            ><?php echo htmlspecialchars($sectionTitle); ?></option>
+                                                                                    <?php } ?>
+									    </select>
 									</div>
+                                                                        
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["section_id"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["section_id"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
+                                                                                    <ul style="color: red">
+											<?php foreach ($formErrors["section_id"] as $errorMessage) { ?>
+                                                                                            <li class="error"><?php echo $errorMessage; ?></li>
+											<?php } ?>
+                                                                                    </ul>
 										<?php } ?>										
 									</div>
 								</div>
                                                                 
 								<div class="form-group">
-									<label class="col-md-3 control-label">Title</label>  
+									<label class="col-md-3 control-label">Title</label>
+                                                                        
 									<div class="col-md-5">
                                                                             <input type="text" name="title" class="form-control" 
                                                                                    value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>">
 									</div>
+                                                                        
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["title"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["title"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
+                                                                                    <ul style="color: red">
+											<?php foreach ($formErrors["title"] as $errorMessage) { ?>
+                                                                                            <li class="error"><?php echo $errorMessage; ?></li>
+											<?php } ?>
+                                                                                    </ul>
 										<?php } ?>									
 									</div>
 								</div>
@@ -80,11 +84,11 @@
 									</div>
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["description"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["description"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
+                                                                                    <ul style="color: red">
+											<?php foreach ($formErrors["description"] as $errorMessage) { ?>
+                                                                                            <li class="error"><?php echo $errorMessage; ?></li>
+											<?php } ?>
+                                                                                    </ul>
 										<?php } ?>									
 									</div>
 								</div>
@@ -117,11 +121,11 @@
 									</div>
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["content"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["content"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
+                                                                                    <ul style="color: red">
+											<?php foreach ($formErrors["content"] as $errorMessage) { ?>
+                                                                                            <li class="error"><?php echo $errorMessage; ?></li>
+											<?php } ?>
+                                                                                    </ul>
 										<?php } ?>									
 									</div>
 								</div>

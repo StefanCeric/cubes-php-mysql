@@ -34,11 +34,13 @@
 									</div>
 									<div class="col-md-4">
 										<?php if (!empty($formErrors["title"])) { ?>
-											<ul style="color: red">
-												<?php foreach ($formErrors["title"] as $errorMessage) { ?>
-													<li class="error"><?php echo $errorMessage; ?></li>
-												<?php } ?>
-											</ul>
+                                                                                    <ul style="color: red">
+                                                                                        
+											<?php foreach ($formErrors["title"] as $errorMessage) { ?>
+                                                                                            <li class="error"><?php echo $errorMessage; ?></li>
+											<?php } ?>
+                                                                                            
+                                                                                    </ul>
 										<?php } ?>										
 									</div>
 								</div>

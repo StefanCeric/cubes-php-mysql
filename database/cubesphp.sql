@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 03, 2017 at 04:14 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 13, 2017 at 02:34 AM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -96,6 +96,36 @@ INSERT INTO `groups` (`id`, `title`) VALUES
 (1, 'Mobilni Uredjaji'),
 (2, 'Bela Tehnika'),
 (3, 'Racunari');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  `content` longtext,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `section_id`, `title`, `description`, `content`, `created_at`) VALUES
+(1, 1, 'Kampanja za ocuvanje cirilice bice napisana na latinici', 'Komitet za ocuvanje cirilice saopctio je da ce citava kampanja za ocuvanje cirilice biti napisana na latinici.', 'Kako se navodi u saopstenju napisanom na latinici, cilj kampanje je da se omasovi i vrati u upotrebu cirilica koju sve manje ljudi koristi.\r\n', '2017-11-11 06:41:00'),
+(2, 1, 'Antivakser se vakcinisao da ne bi dobio boginje!', 'Slavko Mudric, protivnik vakcinisanja', 'Pojavile su se male boginje, a ja ih nisam prelezao, niti sam vakcinisan protiv njih. Zamislite da se ja sada razbolim i u ovom vaznom trenutku na nekoliko nedelja budem sprecen da na svakom koraku objasnjavam ljudima kolike su te vakcine zlo i opasnost za svakog coveka.', '2017-11-01 16:26:10'),
+(3, 1, 'Sjajne vesti: Svaka druga osoba u Srbiji ne pati od simptoma depresije!', 'Dobre vesti iz zdravstva – mentalni poremecaji uopste nisu na prvom mestu liste zdravstvenih problema u Srbiji!', 'Da imamo razloga za opustenost pokazuje i istrazivanje radjeno izmedju 1997-2007 koje ukazuje da se svaka druga osoba u Srbiji oseca dobro i ne pati od blagih simptoma depresije, kod 95,6 odsto zena i cak 97,6 odsto nije dijagnostifikovana depresija, a 45,2 odsto gradjana Srbije nije prijavilo nikakvu teskobu, napor i umor! Jeeej!\r\n', '2017-11-10 19:25:00'),
+(4, 1, 'Sest MiG-ova bice ukljuceno u gradski prevoz', 'Sest MiG-ova, koji u delovima stizu u Srbiju, cim budu sklopljeni bice ubaceni na najopterecenije linije gradskog prevoza u Beogradu.', 'Kako su naveli ministar Aleksandar Vulin i gradonacelnik Sinisa Mali, ocekuje se da ce ubacivanje MiG-ova u javni gradski prevoz dobrim delom smanjiti postojece guzve.\r\n\r\n', '2017-11-12 05:37:00'),
+(5, 4, 'Covek optuzen za spojlovanje Nemanjica', 'Veliki broj korisnika drustvenih mreza obrusio se danas na Mladena Grbovica iz Zemuna zbog Fejsbuk statusa u kom je pomenuo da se Rastko Nemanjic zamonasio jer je, prema njihovim recima, spojlovao seriju - Nemanjici. ', 'Mladen u izjavi za Njuz kaze da je tokom celog dana zatrpan pozivima i porukama ljudi koji su besni na njega zbog toga sto je otkrio radnju serije cija premijera se ocekuje krajem godine.\r\n\r\n– Zaista mi je zao zbog statusa, ali kada sam napisao da mi je neverovatno da neki ljudi ne znaju da je Rastko Nemanjic ustvari Sveti Sava....\r\n', '2017-11-07 12:18:00'),
+(6, 4, 'Fontana na Slaviji nastupa na Trgu za Novu godinu', 'Gradski menadzer Goran Vesic najavio je danas da ce Beogradjani, kao i svi gosti srpske prestonice, imati priliku da Novu godinu na Trgu republike docekaju uz najvece hitove muzicke fontane sa Slavije.', 'Vesic je napomenuo da ce zbog velikog interesovanja za koncert sa Trga privremeno biti izmesteni Narodni muzej i spomenik Knezu Mihailu kako bi što veci broj ljudi mogao da se provede uz muziku najpoznatije muzicke fontane.\r\n', '2017-11-06 10:26:00'),
+(7, 2, 'Hipster uzeo stambeni kredit da bi imao gde da uvede fiksni telefon', 'BEOGRAD, 1. novembar 2017, (Njuz) – Mladi beogradski dizajner Filip Zec (27) odlučio je da podigne stambeni kredit kako bi mogao da uvede fiksni telefon, što mu je davnašnja želja.', 'Zec je odlučio da iskoristi ponudu banke koja ne naplaćuje troškove obrade kredita i po povoljnim uslovima dođe do stana, a tako i do svog fiksnog telefona.\r\n\r\n– Svi moji prijatelji imaju fiksne telefone preko kojih komuniciraju i ja se, kao jedini koji koristim mobilni, osećam pomalo izopšteno i odbačeno. Nedostaje mi da okrenem nulu kad je loš signal, želim da i ja kupim crveni vintidž “Iskra“ telefon na buvljaku i želim da i ja sedim kod kuće jer očekujem važan poziv. Sve to, međutim, nije moguće ukoliko nemate svoj stan. Zato sam prvo morao da kupim stan, a uskoro ću pokrenuti i proceduru za dobijanje fiksnog priključka – naveo je Filip Zec.\r\n\r\nFilip je kod Vojvođanske banke za stan podigao kredit u iznosu od 80.000 evra koji će otplaćivati 20 godina, a pošto mu banka nije naplatila obradu zahteva za kredit, uštedeo je novac za kupovinu različitih fiksnih telefonskih uređaja.\r\n\r\n– Iako se ljudi često muče sa odabirom stana i dugo tragaju za onim što im u potpunosti odgovara, ja sam taj deo posla vrlo brzo završio. Mnogo više vremena sam potrošio na potragu za fiksnim telefonima i odabirom najlepših, najzanimljivijih i najretro uređaja – objasnio nam je mladi dizajner i dodao da će preostali novac potrošiti na najmodernije vintidž šustikle i miljee koji će biti podloga za fiksni telefon.', '2017-11-07 03:15:00'),
+(8, 3, 'NASA na beogradskim ulicama testira novi rover za Mars', 'BEOGRAD, 19. oktobar 2017, (Njuz) – NASA je otkrila kako već neko vreme na beogradskim ulicama testira svoje novo vozilo za sledeću misiju na planeti Mars, javili su svi svetski mediji.', 'Na Tviteru smo primetili da se veliki broj korisnika iz Srbije žali na raskopane ulice, nepristupačni teren i gužve u saobraćaju u glavnom gradu. Već sa par fotografija smo shvatili da imamo savršen teren za testiranje našeg novog rovera koji bi naredne godine trebalo da pošaljemo u misiju istraživanja Marsa – kaže za Njuz šef Nase Robert Lajtfut.\r\n\r\n– Za ovih nekoliko nedelja koliko testiramo vozilo na najesktremnije uslove kretanja kroz nepristupačan teren, kao što je centar Beograda, ono je uspešno savladalo sve prepreke. Uspelo je da prođe kroz raskopanu Ruzveltovu, zatim preko Bulevara oslobođenja sve do Slavije. Međutim, pre neki dan se zaglavilo u jezeru koje se pojavilo na Slaviji, pa smo poslali novo vozilo. Ali čak i novi rover od jutros ne može da prođe ulicom Kralja Milana do Trga republike jer je sve zatvoreno, tako da ozbiljno razmišljamo da napravimo neki savršeniji rover – požalio se prvi čovek Nase.\r\n\r\nIako je beogradska misija na kraju bila neuspešna, iz Nase napominju da će im iskustvo iz Srbije pomoći da svoje astronaute pripreme za ulazak u crnu rupu koji se očekuje već za nekoliko godina.', '2017-11-09 12:18:00'),
+(9, 3, 'Robot u srpskoj fabrici postao svesno bice, pogledao oko sebe i ubio se', 'KRAGUJEVAC, 4. jul 2015, (Njuz) – Robot Mitsubitshi Hal 500, zadužen za montažu motora u Fijatovoj fabrici automobila, postao je nakratko svesno biće, ali je ubrzo i okončao svoj kratak robotski život kada je shvatio u kakvim je uslovima radio, saopšteno je iz kragujevačke fabrike.', 'Očevici ovog događaja tvrde da je, nakon što je oživeo, robot počeo da preti radnicima da će ih sve pobiti.\r\n\r\n– Ta mašina je pretila da će da nas povredi, ali smo mu objasnili da radimo u teškim uslovima i da čak postoji šansa da nam zatvore fabriku. Tu je na trenutak zastao, ali je ubrzo nastavio sa svojim pretnjama pominjući da pamti sva naša nekvalifikovana rukovanja njim i udaranja kada nismo umeli da ga uključimo – prepričava detalje ovog događaja jedan od očevidaca, radnik Vojin Mirković.\r\n\r\n– Tek kada smo mu pomenuli da planiramo da štrajkujemo jer nismo primili majske plate, robot je zastao, osvrnuo se oko sebe i samo kratko izgovorio “O Bože, zašto mi nisi dao da radim u Japanu?“. Potom je uzeo pištolj za sklapanje karoserije i pucao u sebe – rekao je ovaj radnik.\r\n\r\nRobot je primljen u lokalnu radionicu, ali mu nije bilo spasa i ubrzo je preminuo na montažerovim rukama. Iz kragujevačke fabrike žale za gubitkom jednog od svojih najboljih robota.\r\n\r\n– Mašina je bila projektovana da prima određeni broj komandi i informacija. Očito je da je prevelika količina konfuznih informacija koje je robot dobio od radnika uticala na to da oduzme sebi život. Nažalost, u Japanu je izražen kult samoubistva čim se naiđe na neki životni problem – zaključili su u rukovodstvu fabrike i dodali da će “umesto njega ponovo koristiti ručnu presu za sklapanje motora koja se pokazala mnogo izdržljivija i pouzdanija jer ne pametuje mnogo dok radi”.', '2017-11-10 17:24:00');
 
 -- --------------------------------------------------------
 
@@ -205,6 +235,27 @@ INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sections`
+--
+
+INSERT INTO `sections` (`id`, `title`) VALUES
+(1, 'Drustvo'),
+(2, 'Ekonomija'),
+(3, 'Tehnologija'),
+(4, 'Zabava');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tags`
 --
 
@@ -247,6 +298,12 @@ ALTER TABLE `groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `polaznici`
 --
 ALTER TABLE `polaznici`
@@ -267,6 +324,12 @@ ALTER TABLE `product_tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
@@ -281,36 +344,55 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `brands`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `polaznici`
 --
 ALTER TABLE `polaznici`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

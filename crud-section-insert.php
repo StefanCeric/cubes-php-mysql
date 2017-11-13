@@ -25,7 +25,7 @@ $formErrors = array();
 if (isset($_POST["task"]) && $_POST["task"] == "insert") {
 	
 	/*********** filtriranje i validacija polja ****************/
-    if (isset($_POST["title"]) && $_POST["title"] !== '') {
+        if (isset($_POST["title"]) && $_POST["title"] !== '') {
 		//Dodavanje parametara medju podatke u formi
 		$formData["title"] = $_POST["title"];
 		

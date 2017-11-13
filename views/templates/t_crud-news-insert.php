@@ -21,7 +21,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-                                            <form action="" method="post" class="form-horizontal">
+                                            <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
                                                 
                                                 <input type="hidden" name="task" value="insert">
                                                 
@@ -30,6 +30,7 @@
 								
 								<div class="form-group">
 									<label class="col-md-3 control-label">Section</label>  
+                                                                        
 									<div class="col-md-5">
                                                                             <select name="section_id" class="form-control">
                                                                                 <option value="">--- Select Section ---</option>
@@ -59,10 +60,12 @@
                                                                 
 								<div class="form-group">
 									<label class="col-md-3 control-label">Title</label>  
+                                                                        
 									<div class="col-md-5">
                                                                             <input name="title" type="text" class="form-control" 
                                                                                    value="<?php echo isset($formData["title"]) ? htmlspecialchars($formData["title"]) : "";?>">
 									</div>
+                                                                        
 									<div class="col-md-4">
                                                                             <?php if (!empty($formErrors["title"])) { ?>
                                                                                 <ul style="color: red">
@@ -75,10 +78,12 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="col-md-3 control-label">Description</label>  
+									<label class="col-md-3 control-label">Description</label> 
+                                                                        
 									<div class="col-md-5">
                                                                             <textarea name="description" class="form-control" rows="5"><?php echo isset($formData["description"]) ? htmlspecialchars($formData["description"]) : "";?></textarea>
 									</div>
+                                                                        
 									<div class="col-md-4">
                                                                             <?php if (!empty($formErrors["description"])) { ?>
                                                                                 <ul style="color: red">
